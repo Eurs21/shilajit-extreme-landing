@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://shilajit-extreme.vercel.app//sitemap.xml
