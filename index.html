@@ -261,6 +261,31 @@
         }
     </script>
 
+    <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".product-slide");
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlides(n) {
+        if (n >= slides.length) slideIndex = 0;
+        if (n < 0) slideIndex = slides.length - 1;
+        
+        slides.forEach(slide => slide.classList.add('hidden'));
+        dots.forEach(dot => dot.classList.replace('bg-gray-500', 'bg-gray-300'));
+        
+        slides[slideIndex].classList.remove('hidden');
+        dots[slideIndex].classList.replace('bg-gray-300', 'bg-gray-500');
+    }
+
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+</script>
+
     <footer class="gradient-bg text-white py-16 px-6 mt-10">
         <div class="max-w-4xl mx-auto text-center space-y-8">
             <h2 class="text-3xl lg:text-4xl font-extrabold">
