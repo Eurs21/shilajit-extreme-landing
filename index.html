@@ -66,8 +66,25 @@
                     </div>
                 </div>
             </div>
-            <div class="lg:w-1/2 flex justify-center">
-                <img src="Shilajit-Extreme-PRO7.jpg" style="border-radius: 15px;" alt="Shilajit Extreme Bottle" class="max-w-md w-full drop-shadow-2xl">
+            <div class="lg:w-1/2 flex flex-col items-center">
+                <div class="relative w-full max-w-md">
+                    <div class="overflow-hidden rounded-2xl shadow-2xl">
+                        <img src="Shilajit-Extreme-PRO7.jpg" alt="Shilajit Extreme Bottle" class="product-slide w-full h-auto block">
+                        <img src="Shilajit-Extreme-PRO7.jpg" alt="Shilajit Extreme Ingredients" class="product-slide w-full h-auto hidden">
+                    </div>
+
+                    <button onclick="changeSlide(-1)" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/80 transition">
+                    &#10094;
+                    </button>
+                    <button onclick="changeSlide(1)" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/80 transition">
+                    &#10095;
+                    </button>
+                </div>
+    
+                <div class="flex gap-2 mt-4">
+                    <span class="dot w-3 h-3 bg-gray-500 rounded-full cursor-pointer" onclick="currentSlide(0)"></span>
+                    <span class="dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer" onclick="currentSlide(1)"></span>
+                </div>
             </div>
         </div>
     </header>
