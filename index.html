@@ -271,9 +271,23 @@
 
     <script>
     let slideIndex = 0;
+    let autoSlideInterval;
     const slides = document.querySelectorAll(".product-slide");
     const dots = document.querySelectorAll(".dot");
 
+    // --- Automatic Sliding Logic ---
+    function startAutoSlide() {
+        // Change image every 5 seconds (5000 milliseconds)
+        autoSlideInterval = setInterval(() => {
+            changeSlide(1);
+        }, 5000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // --- Main Functions ---
     function showSlides(n) {
         if (n >= slides.length) slideIndex = 0;
         if (n < 0) slideIndex = slides.length - 1;
@@ -290,8 +304,20 @@
     }
 
     function currentSlide(n) {
+        stopAutoSlide(); // Stop auto-play if user clicks a dot
         showSlides(slideIndex = n);
+        startAutoSlide(); // Restart auto-play
     }
+
+    // --- Interaction ---
+    // Pause auto-slide when hovering over the carousel
+    const carouselContainer = document.querySelector(".relative.w-full.max-w-md");
+    carouselContainer.addEventListener('mouseenter', stopAutoSlide);
+    carouselContainer.addEventListener('mouseleave', startAutoSlide);
+
+    // Initialize
+    showSlides(slideIndex);
+    startAutoSlide();
 </script>
 
     <footer class="gradient-bg text-white py-16 px-6 mt-10">
